@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/7 | TaoXiang946Blogs</title>
+  <title>最简单的HtmlUnit抓取JS渲染网址数据 | TaoXiang946Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="TaoXiang946Blogs">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+  <meta name="description" content="JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）1.先添加所需的依赖123456789101112131415161718192021222324252627&amp;lt;dependencies&amp;gt;            &amp;lt;dependency&amp;gt;				&amp;lt;groupId&amp;gt;net.sourceforge.htmlunit&amp;lt;/groupId&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最简单的HtmlUnit抓取JS渲染网址数据">
+<meta property="og:url" content="http://yoursite.com/2019/07/16/JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）/index.html">
 <meta property="og:site_name" content="TaoXiang946Blogs">
+<meta property="og:description" content="JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）1.先添加所需的依赖123456789101112131415161718192021222324252627&amp;lt;dependencies&amp;gt;            &amp;lt;dependency&amp;gt;				&amp;lt;groupId&amp;gt;net.sourceforge.htmlunit&amp;lt;/groupId&amp;gt;">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/0716.png">
+<meta property="og:updated_time" content="2019-07-16T09:34:34.757Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TaoXiang946Blogs">
+<meta name="twitter:title" content="最简单的HtmlUnit抓取JS渲染网址数据">
+<meta name="twitter:description" content="JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）1.先添加所需的依赖123456789101112131415161718192021222324252627&amp;lt;dependencies&amp;gt;            &amp;lt;dependency&amp;gt;				&amp;lt;groupId&amp;gt;net.sourceforge.htmlunit&amp;lt;/groupId&amp;gt;">
+<meta name="twitter:image" content="http://yoursite.com/img/0716.png">
   
     <link rel="alternative" href="/atom.xml" title="TaoXiang946Blogs" type="application/atom+xml">
   
@@ -150,103 +156,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      最简单的HtmlUnit抓取JS渲染网址数据
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/16/JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）/" class="archive-article-date">
+
+        
+        <a href="/2019/07/16/JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）/" class="archive-article-date">
   	<time datetime="2019-07-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/16/JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）/">最简单的HtmlUnit抓取JS渲染网址数据</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）"><a href="#JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）" class="headerlink" title="JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）"></a>JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）</h2><h3 id="1-先添加所需的依赖"><a href="#1-先添加所需的依赖" class="headerlink" title="1.先添加所需的依赖"></a>1.先添加所需的依赖</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">				&lt;groupId&gt;net.sourceforge.htmlunit&lt;/groupId&gt;</span><br><span class="line">				&lt;artifactId&gt;htmlunit&lt;/artifactId&gt;</span><br><span class="line">				&lt;version&gt;2.27&lt;/version&gt;</span><br><span class="line">			&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;xml-apis&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;xml-apis&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;1.4.01&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		</span><br><span class="line">    &lt;!-- 这里要<span class="number">2.4</span>版本，<span class="number">2.2</span>会缺少东西 --&gt;</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;commons-io&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;commons-io&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;2.4&lt;/version&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;dependency&gt;</span><br><span class="line">			&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">			&lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">			&lt;version&gt;4.11&lt;/version&gt;</span><br><span class="line">			&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">		&lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<h3 id="2-编写测试类"><a href="#2-编写测试类" class="headerlink" title="2.编写测试类"></a>2.编写测试类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> htmlunit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;</span><br><span class="line"><span class="keyword">import</span> com.gargoylesoftware.htmlunit.WebClient;</span><br><span class="line"><span class="keyword">import</span> com.gargoylesoftware.htmlunit.html.HtmlPage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	    <span class="meta">@org</span>.junit.Test</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		WebClient webClient = <span class="keyword">new</span> WebClient();</span><br><span class="line">        webClient.getOptions().setJavaScriptEnabled(<span class="keyword">true</span>);<span class="comment">//运行js脚本执行</span></span><br><span class="line">        webClient.setAjaxController(<span class="keyword">new</span> NicelyResynchronizingAjaxController());<span class="comment">//设置支持AJAX</span></span><br><span class="line">        webClient.getOptions().setCssEnabled(<span class="keyword">false</span>);<span class="comment">//忽略css</span></span><br><span class="line">        webClient.getOptions().setUseInsecureSSL(<span class="keyword">true</span>);<span class="comment">//ssl安全访问</span></span><br><span class="line">        webClient.getOptions().setThrowExceptionOnScriptError(<span class="keyword">false</span>);  <span class="comment">//解析js出错时不抛异常</span></span><br><span class="line">        webClient.getOptions().setTimeout(<span class="number">100</span>);  <span class="comment">//超时时间  ms</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取页面</span></span><br><span class="line">        String url = <span class="string">"https://www.toutiao.com/"</span>;</span><br><span class="line">        HtmlPage page = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			page = webClient.getPage(url);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"页面title文本:"</span> + page.getTitleText());</span><br><span class="line">        System.out.println(<span class="string">"-------------------执行js脚本之前"</span>);</span><br><span class="line">        System.out.println(page.asXml());<span class="comment">//页面文档结构字符串</span></span><br><span class="line"></span><br><span class="line">        webClient.waitForBackgroundJavaScript(<span class="number">500</span>);   <span class="comment">//等待js脚本执行完成</span></span><br><span class="line">        System.out.println(<span class="string">"-------------------执行js脚本后"</span>);</span><br><span class="line">        System.out.println(page.asXml());<span class="comment">//页面文档结构字符串</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="3-完毕"><a href="#3-完毕" class="headerlink" title="3.完毕"></a>3.完毕</h3><p>忽略报错，打印出头条html</p>
+<p><img src="/img/0716.png" alt="0716"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/myimg/wxpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/16/JAVA抓取通过JS渲染的网站（动态）网页数据（HtmlUnit）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/13/0713one/" class="archive-article-date">
-  	<time datetime="2019-07-13T06:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/13/0713one/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">发博客第一天</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/0713one/">发博客第一天</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/13/hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-13T04:55:56.633Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/13/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
