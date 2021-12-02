@@ -266,6 +266,82 @@
 
 
   
+    <article id="post-java启动脚本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/11/04/java%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">java启动脚本</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/11/04/java%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" class="archive-article-date">
+        <time datetime="2020-11-04T12:51:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">PROJ_NAME=&quot;jishiqi-app-server&quot;</span><br><span class="line">BASE_DIR=&quot;/data/jishiqi/jsq-jishiqi/$&#123;PROJ_NAME&#125;/pack&quot;</span><br><span class="line">LOG_DIR=&quot;$&#123;BASE_DIR&#125;/$&#123;PROJ_NAME&#125;.log&quot;</span><br><span class="line">PID_FILE=&quot;$&#123;BASE_DIR&#125;/$&#123;PROJ_NAME&#125;.pid&quot;</span><br><span class="line">CONF_DIR=&quot;/home/jishiqi/jsq-jishiqi/conf/app&quot;</span><br><span class="line"></span><br><span class="line">old_pid=$(cat $&#123;PID_FILE&#125;)</span><br><span class="line">kill $&#123;old_pid&#125;</span><br><span class="line">echo &quot;Process END.&quot;</span><br><span class="line"></span><br><span class="line">echo &quot;############################### Packs ###################################&quot;</span><br><span class="line">echo</span><br><span class="line">cd $BASE_DIR</span><br><span class="line"></span><br><span class="line">ls -1t *.jar</span><br><span class="line"></span><br><span class="line">echo</span><br><span class="line">echo &quot;############################### Packs Done ##############################&quot;</span><br><span class="line"></span><br><span class="line">default_pack=$(ls -1t *.jar | head -1)</span><br><span class="line"></span><br><span class="line">read -p &quot;Input your file name(defaults: $default_pack): &quot; packName</span><br><span class="line">nohup java -Xms512m -Xmx768m -jar $&#123;packName:-$default_pack&#125; --spring.config.location=$&#123;CONF_DIR&#125;/ --spring.profiles.active=prod &gt; /dev/null &amp;</span><br><span class="line"></span><br><span class="line">echo &quot;DONE!&quot;</span><br><span class="line"></span><br><span class="line">echo -e &quot;\n\n[INFO]Starting spring-boot pid: $&#123;old_pid&#125;\n\n&quot;</span><br><span class="line"></span><br><span class="line">if [[ -e $&#123;LOG_DIR&#125; ]]</span><br><span class="line">then</span><br><span class="line">    tail -f $&#123;LOG_DIR&#125;</span><br><span class="line">else</span><br><span class="line">    echo &quot;[INFO]Please tail -f the log file here: $&#123;LOG_DIR&#125;&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/11/04/java%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MongoDB安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -419,6 +495,252 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/07/02/MongoDB%E5%AE%89%E8%A3%85/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/06/01/%E9%9B%86%E5%90%88/">集合</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/06/01/%E9%9B%86%E5%90%88/" class="archive-article-date">
+        <time datetime="2020-06-01T03:15:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1.基于数组实现，是一个动态数组，容量自动增长，</span></span><br><span class="line"><span class="comment">//   如果通过无参构造方法，jdk1.7以后初始容量0，第一次调用add方法时才初始容量为10，增长为原容量1.5倍</span></span><br><span class="line"><span class="comment">// 2.实现 RandomAccess快速访问，实现克隆，实现序列化</span></span><br><span class="line"><span class="comment">//3.在add()方法中主要完成了三件事：首先确保能够将希望添加到集合中的元素能够添加到集合中，即确保ArrayList     的容量（判断是否需要扩容）；然后将元素添加到elementData数组的指定位置；最后将集合中实际的元素个数加1</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Vector</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">RandomAccess</span>, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;&#125;</span><br><span class="line"><span class="comment">// 1.跟ArrayList及其相似，只不过是线程安全的，但是由于线程安全，所以消耗大不建议使用</span></span><br><span class="line"><span class="comment">// 无参构造就初始化容量为10了，增长为一倍</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSequentialList</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">List</span>&lt;<span class="title">E</span>&gt;, <span class="title">Deque</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;&#125;</span><br><span class="line"><span class="comment">//是一种链表类型的数据结构，支持高效的插入和删除操作，同时也实现了Deque(双向队列)接口，使得LinkedList类   也具有队列的特性。LinkedList类的底层实现的数据结构是一个双端的链表。</span></span><br><span class="line"><span class="comment">//LinkedList类中有一个内部私有类Node，这个类就代表双端链表的节点Node。这个类有三个属性，分别是前驱节     点，本节点的值，后继节点。</span></span><br><span class="line"><span class="comment">// add()方法是在最后添加，查询效率低，使用二分法</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractMap</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Map</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt;, <span class="title">Cloneable</span>, <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// HashMap底层就是一个数组结构，数组中的每一项又是一个链表</span></span><br><span class="line"><span class="comment">// 1.new一个无参HashMap初始化负载因子为0.75f</span></span><br><span class="line"><span class="comment">// 2.put第一个元素时，如果map为空会初始化长度为16的数组</span></span><br><span class="line"><span class="comment">//在JDK1.7及以前的版本中，HashMap里是没有红黑树的实现的，在JDK1.8中加入了红黑树是为了防止哈希表碰撞攻     击，当链表链长度为8时，及时转成红黑树，提高map的效率。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Set</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;&#125;</span><br><span class="line"><span class="comment">// new HashSet底层new了一个HashMap</span></span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/06/01/%E9%9B%86%E5%90%88/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux安装mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/03/02/linux%E5%AE%89%E8%A3%85mysql/">Linux安装mysql</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/03/02/linux%E5%AE%89%E8%A3%85mysql/" class="archive-article-date">
+        <time datetime="2020-03-02T10:43:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="第一步：下载"><a href="#第一步：下载" class="headerlink" title="第一步：下载"></a><strong>第一步：</strong>下载</h2><p>进入到mysql官网下载自己对应版本的mysql，</p>
+<p>下载地址：<a href="https://gitee.com/link?target=https%3A%2F%2Fdev.mysql.com%2Fdownloads%2Fmysql%2F5.7.html%23downloads">https://dev.mysql.com/downloads/mysql/5.7.html#downloads</a></p>
+<p>我这里下载mysql-5.7.25-linux-glibc2.12-x86_64.tar.gz版本</p>
+<p><img src="https://img-blog.csdnimg.cn/20190408093212362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xjaDUyMGJhYnk=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p>也可以进入linux后用命令下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.25-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二步：环境配置"><a href="#第二步：环境配置" class="headerlink" title="第二步：环境配置"></a><strong>第二步：</strong>环境配置</h2><p>linux连接工具：SecureCRT 8.1.4</p>
+<p>linux文件管理工具：WinSCP 5.14.4</p>
+<p>linux系统版本： CentOS 7.3 64位</p>
+<p>安装源文件版本：mysql-5.7.25-linux-glibc2.12-x86_64.tar.gz</p>
+<p>安装前，我们可以检测系统是否自带安装 MySQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
+
+<p>如有，类似</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql-libs-5.1.52-1.el6_0.1.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>那可以选择进行卸载:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rpm -e mysql-libs-5.1.52-1.el6_0.1.x86_64　　// 普通删除模式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">rpm -e --nodeps mysql-libs-5.1.52-1.el6_0.1.x86_64　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除</span><br></pre></td></tr></table></figure>
+
+<p>检查否存在 mariadb 数据库，如有，卸载之，卸载同上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb</span><br></pre></td></tr></table></figure>
+
+<p>如有，类似</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mariadb-libs-5.5.56-2.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>则 卸载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64</span><br></pre></td></tr></table></figure>
+
+<p>用WinSCP 5.14.4工具将下载的mysql-5.7.25-linux-glibc2.12-x86_64.tar.gz上传到linux服务器的/opt/mysql目录下面</p>
+<p><img src="https://img-blog.csdnimg.cn/20190408100810952.png" alt="img"></p>
+<h2 id="第三步：安装"><a href="#第三步：安装" class="headerlink" title="第三步：安装"></a>第三步：安装</h2><p>进入安装包所在目录，解压文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/mysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tar -zxvf mysql-5.7.25-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190408101248939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xjaDUyMGJhYnk=,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p>重命名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mysql-5.7.25-linux-glibc2.12-x86_64 mysql-5.7.25</span><br></pre></td></tr></table></figure>
+
+<p><strong>添加系统mysql组和mysql用户</strong></p>
+<p>检查mysql组和用户是否存在，如无创建</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/group | grep mysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#类似</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql:x:490:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat /etc/passwd | grep mysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#类似</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql:x:496:490::/home/mysql:/bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>以上为存在的情况，如无，执行添加命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">useradd -r -g mysql mysql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#useradd -r参数表示mysql用户是系统用户，不可用于登录系统</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20190408101930333.png" alt="img"></p>
+<p><strong>安装数据库</strong></p>
+<p>创建data目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd mysql-5.7.25</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mkdir data</span><br></pre></td></tr></table></figure>
+
+<p>将/opt/mysql/mysql-5.7.25的所有者及所属组改为mysql</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql.mysql /opt/mysql/mysql-5.7.25</span><br></pre></td></tr></table></figure>
+
+<p>在/opt/mysql/mysql-5.7.25/support-files目录下创建my_default.cnf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"># For advice on how to change settings please see</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># *** DO NOT EDIT THIS FILE. It&#x27;s a template which will be copied to the</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># *** default location during install, and will be replaced if you</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># *** upgrade to a newer version of MySQL.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">basedir = /opt/mysql/mysql-5.7.25</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">datadir = /opt/mysql/mysql-5.7.25/data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">port = 3306</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">socket = /tmp/mysql.sock</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">character-set-server=utf8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">log-error = /opt/mysql/mysql-5.7.25/data/mysqld.log</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pid-file = /opt/mysql/mysql-5.7.25/data/mysqld.pid</span><br></pre></td></tr></table></figure>
+
+<p>拷贝，如果提示是否覆盖，y</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/my_default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
+
+<p>初始化 mysqld</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/mysql/mysql-5.7.25</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">./bin/mysqld --initialize --user=mysql --basedir=/opt/mysql/mysql-5.7.25/ --datadir=/opt/mysql/mysql-5.7.25/data/ </span><br></pre></td></tr></table></figure>
+
+<p>初始化完成之后，查看日志</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/mysql/mysql-5.7.25/data/mysqld.log</span><br></pre></td></tr></table></figure>
+
+<p>临时密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2019-04-08T06:14:29.790033Z 1 [Note] A temporary password is generated for root@localhost: a8?DQir=T+k+</span><br></pre></td></tr></table></figure>
+
+<p>把启动脚本放到开机初始化目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp support-files/mysql.server /etc/init.d/mysql</span><br></pre></td></tr></table></figure>
+
+<p>启动mysql服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br></pre></td></tr></table></figure>
+
+<p>登录mysql，密码为初始密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/mysql/mysql-5.7.25</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">./bin/mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>修改密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set password=password(&#x27;123456&#x27;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; grant all privileges on *.* to root@&#x27;%&#x27; identified by &#x27;123456&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>添加远程访问权限</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; update user set host=&#x27;%&#x27; where user = &#x27;root&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+
+<p>重启mysql生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service mysql stop</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">service mysql start</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://gitee.com/link?target=https%3A%2F%2Fwww.cnblogs.com%2Fhuixuexidezhu%2Fp%2F6566261.html">https://www.cnblogs.com/huixuexidezhu/p/6566261.html</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/03/02/linux%E5%AE%89%E8%A3%85mysql/">展开全文 >></a>
     </p>
     
 

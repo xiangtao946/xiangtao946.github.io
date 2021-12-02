@@ -6,19 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MongoDB搭建副本 | TaoXiang946Blogs</title>
+  <title>Archives: 2020/6 | TaoXiang946Blogs</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="我自己搭建流程10086.conf 这是主123456789101112replSet&#x3D;mongosport&#x3D;10086#port&#x3D;27018dbpath&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;mongo_list&#x2F;10086&#x2F;dataoplogSize&#x3D;2048 logpath&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;mongo_list&#x2F;10086&#x2F;10086.log logappend&#x3D;true fork">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MongoDB搭建副本">
-<meta property="og:url" content="http://yoursite.com/2020/07/02/MongoDB%E5%AE%89%E8%A3%85/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="TaoXiang946Blogs">
+<meta property="og:url" content="http://yoursite.com/archives/2020/06/index.html">
 <meta property="og:site_name" content="TaoXiang946Blogs">
-<meta property="og:description" content="我自己搭建流程10086.conf 这是主123456789101112replSet&#x3D;mongosport&#x3D;10086#port&#x3D;27018dbpath&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;mongo_list&#x2F;10086&#x2F;dataoplogSize&#x3D;2048 logpath&#x3D;&#x2F;usr&#x2F;local&#x2F;java&#x2F;mongo_list&#x2F;10086&#x2F;10086.log logappend&#x3D;true fork">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-07-02T06:40:30.000Z">
-<meta property="article:modified_time" content="2021-12-02T12:38:22.000Z">
 <meta property="article:author" content="Tao Xiang">
 <meta name="twitter:card" content="summary">
   
@@ -181,308 +177,54 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MongoDB安装" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/06/01/%E9%9B%86%E5%90%88/" class="archive-article-date">
+        <time datetime="2020-06-01T03:15:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      MongoDB搭建副本
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2020/06/01/%E9%9B%86%E5%90%88/">集合</a>
+	
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2020/07/02/MongoDB%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2020-07-02T06:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-02</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">890字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="我自己搭建流程"><a href="#我自己搭建流程" class="headerlink" title="我自己搭建流程"></a>我自己搭建流程</h1><h3 id="10086-conf-这是主"><a href="#10086-conf-这是主" class="headerlink" title="10086.conf 这是主"></a>10086.conf 这是主</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">replSet=mongos</span><br><span class="line">port=10086</span><br><span class="line"><span class="meta">#</span><span class="bash">port=27018</span></span><br><span class="line">dbpath=/usr/local/java/mongo_list/10086/data</span><br><span class="line">oplogSize=2048 </span><br><span class="line">logpath=/usr/local/java/mongo_list/10086/10086.log </span><br><span class="line">logappend=true </span><br><span class="line">fork=true </span><br><span class="line">pidfilepath=/usr/local/java/mongo_list/10086/10086.pid</span><br><span class="line">bind_ip=0.0.0.0</span><br><span class="line"><span class="meta">#</span><span class="bash">keyFile=/usr/<span class="built_in">local</span>/java/mongo_list/mongo.key</span></span><br><span class="line"><span class="meta">#</span><span class="bash">auth=<span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="10010-conf-这是副"><a href="#10010-conf-这是副" class="headerlink" title="10010.conf 这是副"></a>10010.conf 这是副</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">replSet=mongos</span><br><span class="line">port=10010</span><br><span class="line"><span class="meta">#</span><span class="bash">port=27018</span></span><br><span class="line">dbpath=/usr/local/java/mongo_list/10010/data</span><br><span class="line">oplogSize=2048 </span><br><span class="line">logpath=/usr/local/java/mongo_list/10010/10010.log </span><br><span class="line">logappend=true </span><br><span class="line">fork=true </span><br><span class="line">pidfilepath=/usr/local/java/mongo_list/10010/10010.pid</span><br><span class="line">bind_ip=0.0.0.0</span><br><span class="line"><span class="meta">#</span><span class="bash">keyFile=/usr/<span class="built_in">local</span>/java/mongo_list/mongo.key</span></span><br><span class="line"><span class="meta">#</span><span class="bash">auth=<span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="进入bin目录下，进入-mongo"><a href="#进入bin目录下，进入-mongo" class="headerlink" title="进入bin目录下，进入./mongo"></a>进入bin目录下，进入./mongo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加主从关系</span></span><br><span class="line">rs.initiate( &#123;</span><br><span class="line">... _id: &quot;mongos&quot;,</span><br><span class="line">... members: [</span><br><span class="line">... &#123; _id: 0, host: &quot;192.168.31.224:10086&quot;&#125;,</span><br><span class="line">... &#123; _id: 1, host: &quot;192.168.31.224:10010&quot;&#125;</span><br><span class="line">... ] &#125;)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建个root用户</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入admin数据库</span></span><br><span class="line">use admin</span><br><span class="line">db.createUser(&#123;user: &quot;root&quot;, pwd: &quot;root&quot;, roles: [&#123;role: &quot;root&quot;, db: &quot;admin&quot;&#125;]&#125;)</span><br><span class="line">db.createUser(&#123;user:&quot;admin&quot;,pwd:&#x27;admin&#x27;,roles:[&quot;userAdminAnyDatabase&quot;,&quot;dbAdminAnyDatabase&quot;,&quot;readWriteAnyDatabase&quot;]&#125;)</span><br></pre></td></tr></table></figure>
-
-<h1 id="MongoDB配置用户名和密码-下面都是网上拷贝下来的"><a href="#MongoDB配置用户名和密码-下面都是网上拷贝下来的" class="headerlink" title="MongoDB配置用户名和密码(下面都是网上拷贝下来的)"></a>MongoDB配置用户名和密码(下面都是网上拷贝下来的)</h1><h2 id="02-角色权限"><a href="#02-角色权限" class="headerlink" title="02 角色权限"></a>02 角色权限</h2><p><strong>角色权限：</strong></p>
-<table>
-<thead>
-<tr>
-<th>角色</th>
-<th>权限</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据库用户角色</td>
-<td>read、readWrite</td>
-</tr>
-<tr>
-<td>数据库管理角色</td>
-<td>dbAdmin、dbOwner、userAdmin</td>
-</tr>
-<tr>
-<td>集群管理角色</td>
-<td>clusterAdmin、clusterManager、clusterMonitor、hostManager</td>
-</tr>
-<tr>
-<td>备份恢复角色</td>
-<td>backup、restore</td>
-</tr>
-<tr>
-<td>所有数据库角色</td>
-<td>readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase</td>
-</tr>
-<tr>
-<td>超级用户角色</td>
-<td>root 这里还有几个角色间接或直接提供了系统超级用户的访问（dbOwner 、userAdmin、userAdminAnyDatabase）</td>
-</tr>
-<tr>
-<td>内部角色</td>
-<td>system</td>
-</tr>
-</tbody></table>
-<p><strong>权限说明：</strong></p>
-<table>
-<thead>
-<tr>
-<th>权限</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Read</td>
-<td>允许用户读取指定数据库</td>
-</tr>
-<tr>
-<td>readWrite</td>
-<td>允许用户读写指定数据库</td>
-</tr>
-<tr>
-<td>dbAdmin</td>
-<td>允许用户在指定数据库中执行管理函数，如索引创建、删除，查看统计或访问system.profile</td>
-</tr>
-<tr>
-<td>userAdmin</td>
-<td>允许用户向system.users集合写入，可以找指定数据库里创建、删除和管理用户</td>
-</tr>
-<tr>
-<td>clusterAdmin</td>
-<td>只在admin数据库中可用，赋予用户所有分片和复制集相关函数的管理权限</td>
-</tr>
-<tr>
-<td>readAnyDatabase</td>
-<td>只在admin数据库中可用，赋予用户所有数据库的读权限</td>
-</tr>
-<tr>
-<td>readWriteAnyDatabase</td>
-<td>只在admin数据库中可用，赋予用户所有数据库的读写权限</td>
-</tr>
-<tr>
-<td>userAdminAnyDatabase</td>
-<td>只在admin数据库中可用，赋予用户所有数据库的userAdmin权限</td>
-</tr>
-<tr>
-<td>dbAdminAnyDatabase</td>
-<td>只在admin数据库中可用，赋予用户所有数据库的dbAdmin权限</td>
-</tr>
-<tr>
-<td>root</td>
-<td>只在admin数据库中可用（超级账号，超级权限)</td>
-</tr>
-</tbody></table>
-<h2 id="03-用户管理"><a href="#03-用户管理" class="headerlink" title="03 用户管理"></a>03 用户管理</h2><h3 id="3-1-新建管理员用户"><a href="#3-1-新建管理员用户" class="headerlink" title="3.1 新建管理员用户"></a>3.1 新建管理员用户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mongodb/bin/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">客户端登录服务，注意，这里通过localhost登录，如果需要远程登录，必须先登录认证才行。</span> </span><br><span class="line">./mongo --port 27017 </span><br><span class="line"></span><br><span class="line">use admin  </span><br><span class="line">db.createUser(</span><br><span class="line">   &#123;</span><br><span class="line">		user: &quot;admin1&quot;,</span><br><span class="line">		pwd: “123456”,</span><br><span class="line">		roles: [&#123;role: ”userAdminAnyDatabase”,db:”admin”&#125;]</span><br><span class="line">   &#125;</span><br><span class="line"> )</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-创建普通用户"><a href="#3-2-创建普通用户" class="headerlink" title="3.2 创建普通用户"></a>3.2 创建普通用户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mongodb/bin/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">客户端登录服务，注意，这里通过localhost登录，如果需要远程登录，必须先登录认证才行。</span> </span><br><span class="line">./mongo --port 27017 </span><br><span class="line"></span><br><span class="line">use db_foo ##（用户数据库，自定义，根据实际场景命名）</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">可以查看角色</span></span><br><span class="line">show roles </span><br><span class="line"></span><br><span class="line">db.createUser(</span><br><span class="line">    &#123;</span><br><span class="line">		user: &quot;xttest&quot;,</span><br><span class="line">		pwd: &quot;xttest&quot;,</span><br><span class="line">		roles: [&quot;readWrite&quot;,&quot;dbAdmin&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-查看的用户"><a href="#3-3-查看的用户" class="headerlink" title="3.3 查看的用户"></a>3.3 查看的用户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.system.users.find()</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-删除用户"><a href="#3-4-删除用户" class="headerlink" title="3.4 删除用户"></a>3.4 删除用户</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.system.users.remove(&#123;user:&quot;simpleUser&quot;&#125;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="04-开启权限验证"><a href="#04-开启权限验证" class="headerlink" title="04 开启权限验证"></a>04 开启权限验证</h2><p>在启动时指定<code>--auth</code>即需要授权才能操作:</p>
-<p><strong>①开启服务</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/mongodb/bin/mongod --auth -f /mongodb/single/mongod.conf </span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<p><strong>②客户端连接并认证</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mongodb/bin/</span><br><span class="line"></span><br><span class="line">./mongo --port 27017 </span><br><span class="line"></span><br><span class="line">use db_foo</span><br><span class="line">db.auth(&quot;ylw&quot;,&quot;123456&quot;)</span><br><span class="line">123456</span><br></pre></td></tr></table></figure>
-
-<p><strong>③关闭服务</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/mongodb/bin/</span><br><span class="line"><span class="meta">#</span><span class="bash">客户端登录服务，注意，这里通过localhost登录，如果需要远程登录，必须先登录认证才行。</span> </span><br><span class="line">./mongo --port 27017 </span><br><span class="line"><span class="meta">#</span><span class="bash">切换到admin库</span> </span><br><span class="line">use admin </span><br><span class="line"><span class="meta">#</span><span class="bash">关闭服务</span> </span><br><span class="line">db.shutdownServer()</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          Tao Xiang
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2020/07/02/MongoDB安装/" title="MongoDB搭建副本" target="_blank">http://yoursite.com/2020/07/02/MongoDB安装/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
+          
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/02/MongoDB%E5%AE%89%E8%A3%85/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2020/11/04/java%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java启动脚本
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/06/01/%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">集合</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -523,8 +265,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
