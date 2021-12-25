@@ -6,25 +6,37 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>openfeign调用服务请求头丢失问题 | TaoXiang946Blogs</title>
+  <title>java11对比java8不同 | TaoXiang946Blogs</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="在使用SpringCloud进行Feign跨服调用时header请求头中的信息会丢失，是因为Feign是不会带上当前请求的Cookie信息和头信息的，这个时候就需要重写请求拦截。 1、需要重写RequestInterceptor接口中的apply方法（前提是Feign的隔离策略为SEMAPHORE）  12345678910111213141516171819202122232425@Compon">
+  <meta name="description" content="一个小纠结 到底该安装哪个版本的JDK比较好？ Java 8到底还够不够用？ Java 11究竟有什么改进？ 是不是Java版本越新越好？ ……  但目前市场上主流的稳定版当然还得属Java 8和Java 11，而目前大部分公司的生产环境还是Java 8居多。所以如果从自学角度出发，我觉得这两个版本都OK，其他中间的一些比如Java 9、Java 10这些非稳定版就不用考虑了。  Java11 v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="openfeign调用服务请求头丢失问题">
-<meta property="og:url" content="http://yoursite.com/2021/12/02/openfeign%E8%B0%83%E7%94%A8%E6%9C%8D%E5%8A%A1%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="java11对比java8不同">
+<meta property="og:url" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/index.html">
 <meta property="og:site_name" content="TaoXiang946Blogs">
-<meta property="og:description" content="在使用SpringCloud进行Feign跨服调用时header请求头中的信息会丢失，是因为Feign是不会带上当前请求的Cookie信息和头信息的，这个时候就需要重写请求拦截。 1、需要重写RequestInterceptor接口中的apply方法（前提是Feign的隔离策略为SEMAPHORE）  12345678910111213141516171819202122232425@Compon">
+<meta property="og:description" content="一个小纠结 到底该安装哪个版本的JDK比较好？ Java 8到底还够不够用？ Java 11究竟有什么改进？ 是不是Java版本越新越好？ ……  但目前市场上主流的稳定版当然还得属Java 8和Java 11，而目前大部分公司的生产环境还是Java 8居多。所以如果从自学角度出发，我觉得这两个版本都OK，其他中间的一些比如Java 9、Java 10这些非稳定版就不用考虑了。  Java11 v">
 <meta property="og:locale">
-<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
-<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
-<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
-<meta property="article:published_time" content="2021-12-02T06:40:30.000Z">
-<meta property="article:modified_time" content="2021-12-02T09:27:33.721Z">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cjdk11.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cjava_version.jpg">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cvar_helloword.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cvar_num_error.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cvar_no_init.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cvar_entity.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cvar_list.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5C11list.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Clist_copy.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5C11list_error.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5C11string.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cfiles_string.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5CinputStream.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5ChelloWorld.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cshell_helloWord.png">
+<meta property="article:published_time" content="2021-12-25T03:15:03.000Z">
+<meta property="article:modified_time" content="2021-12-25T05:25:44.005Z">
 <meta property="article:author" content="Tao Xiang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta name="twitter:image" content="http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/..%5Cimg%5Cjdk11.jpg">
   
     <link rel="alternative" href="/atom.xml" title="TaoXiang946Blogs" type="application/atom+xml">
   
@@ -185,14 +197,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-openfeign调用服务请求头丢失问题" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java11对比java8" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      openfeign调用服务请求头丢失问题
+      java11对比java8不同
     </h1>
   
 
@@ -204,8 +216,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/12/02/openfeign%E8%B0%83%E7%94%A8%E6%9C%8D%E5%8A%A1%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2021-12-02T06:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-02</time>
+<a href="/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/" class="archive-article-date">
+        <time datetime="2021-12-25T03:15:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-12-25</time>
 </a>
 
   
@@ -218,7 +230,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">847字</span>
+      <span class="post-count">828字</span>
     </span>
   </span>
 
@@ -227,7 +239,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -238,15 +250,59 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>在使用SpringCloud进行Feign跨服调用时header请求头中的信息会丢失，是因为Feign是不会带上当前请求的Cookie信息和头信息的，这个时候就需要重写请求拦截。</p>
-<p>1、需要重写RequestInterceptor接口中的apply方法（前提是Feign的隔离策略为SEMAPHORE）</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class FeignInterceptor implements RequestInterceptor&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void apply(RequestTemplate template) &#123;</span><br><span class="line">        HttpServletRequest httpServletRequest = getHttpServletRequest();</span><br><span class="line">        if (httpServletRequest != null) &#123;</span><br><span class="line">            //获取头信息</span><br><span class="line">            Map&lt;String, String&gt; headers = getHeaders(httpServletRequest);</span><br><span class="line">            // 传递所有请求头,防止部分丢失</span><br><span class="line">            Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = headers.entrySet().iterator();</span><br><span class="line"></span><br><span class="line">            //将请求的头信息放入到RequestTemplate 的头信息中，当使用RequestTemplate发起请求时会自动添加头信息</span><br><span class="line">            while (iterator.hasNext()) &#123;</span><br><span class="line">                Map.Entry&lt;String, String&gt; entry = iterator.next();</span><br><span class="line">                // 跳过 content-length</span><br><span class="line">                if (entry.getKey().equals(&quot;content-length&quot;))&#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line">                template.header(entry.getKey(), entry.getValue());</span><br><span class="line">            &#125;</span><br><span class="line">            log.debug(&quot;FeignRequestInterceptor:&#123;&#125;&quot;, template.toString());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+    <h1 id="一个小纠结"><a href="#一个小纠结" class="headerlink" title="一个小纠结"></a>一个小纠结</h1><ul>
+<li>到底该安装哪个版本的JDK比较好？</li>
+<li>Java 8到底还够不够用？</li>
+<li>Java 11究竟有什么改进？</li>
+<li>是不是Java版本越新越好？</li>
+<li>……</li>
+</ul>
+<p>但目前市场上主流的<strong>稳定版</strong>当然还得属<strong>Java 8</strong>和<strong>Java 11</strong>，而目前大部分公司的生产环境还是<code>Java 8</code>居多。所以如果从自学角度出发，我觉得这两个版本都OK，其他中间的一些比如<code>Java 9</code>、<code>Java 10</code>这些非稳定版就不用考虑了。</p>
+<hr>
+<h1 id="Java11-vs-Java8"><a href="#Java11-vs-Java8" class="headerlink" title="Java11 vs Java8"></a>Java11 vs Java8</h1><p><img src="..%5Cimg%5Cjdk11.jpg" alt="jdk11"></p>
+<p>Java 11相对于Java 8确实有一部分进化，除了有很多内部的升级（比如开销和时延更低的GC、TLS1.3加持等等）之外，对于初学使用者来说也有一些语言使用层面的进化。</p>
+<p>正好最近我在自己的个人小项目上尝试升级使用了一下<code>Java 11</code>（公司项目咱也不敢动、也不敢问，只好动自己的个人项目），因此本文从实际代码编写角度来大致体验一下我个人使用<code>Java 11</code>之后相对<code>Java 8</code>所感觉到的一些比较深刻的进化，官方文档里说得也非常清楚了：<code>https://docs.oracle.com/en/java/javase/11/</code></p>
+<p>我这次实验装的<code>Java 11</code>版本是<code>11.0.2</code>：</p>
+<p><img src="..%5Cimg%5Cjava_version.jpg" alt="java_version"></p>
+<p>下文将要实验验证的一些新特性其实也并非<code>Java 11</code>才引入，很多其实在<code>Java 9</code>和<code>Java 10</code>时就已经引入，只不过到了<code>Java 11</code>这个稳定版才沉淀下来。</p>
+<hr>
+<h1 id="变量类型推断"><a href="#变量类型推断" class="headerlink" title="变量类型推断"></a>变量类型推断</h1><p>新版Java引入了一个全新的类型关键字<code>var</code>，用<code>var</code>来定义的变量不用写具体类型，编译器能根据<code>=</code>右边的实际赋值来自动推断出变量的类型：</p>
+<p><strong>1、普通局部变量</strong></p>
+<p><img src="..%5Cimg%5Cvar_helloword.png" alt="var_helloword"></p>
+<p><strong>2、当然，有些情况是不能使用的</strong></p>
+<p><code>var</code>类型变量一旦赋值后，重新赋不同类型的值是不行的，比如：</p>
+<p><img src="..%5Cimg%5Cvar_num_error.png" alt="var_num_error"></p>
+<p>定义<code>var</code>类型变量没有初始化是不行的，比如：</p>
+<p><img src="..%5Cimg%5Cvar_no_init.png" alt="var_no_init"></p>
+<p>另外，像类的<code>成员变量类型</code>、<code>方法入参类型</code>、<code>返回值类型</code>等是不能使用<code>var</code>的，比如：</p>
+<p><img src="..%5Cimg%5Cvar_entity.png" alt="var_entity"></p>
+<p><strong>3、for循环中使用</strong></p>
+<p><img src="..%5Cimg%5Cvar_list.png" alt="var_list"></p>
+<hr>
+<h1 id="集合增强"><a href="#集合增强" class="headerlink" title="集合增强"></a>集合增强</h1><p>主要是增加了诸如<code>of()</code>和<code>copyOf()</code>等方法用于更加方便的<strong>创建</strong>和<strong>复制</strong>集合类型</p>
+<p>首先对比<code>Java 11</code>和<code>Java 8</code>的List.java，红色框框里面就是新增静态方法，可以看出是<code>Java 9</code>新增的（copyOf是<code>Java 10</code>新增）</p>
+<p><img src="..%5Cimg%5C11list.png" alt="11list"></p>
+<p>使用<code>of()</code>和<code>copyOf()</code></p>
+<p><img src="..%5Cimg%5Clist_copy.png" alt="list_copy"></p>
+<p>注意：在List.of后调add()会报错，跟Arrays.asList()后调add()一样</p>
+<p><img src="..%5Cimg%5C11list_error.png" alt="11list_error"></p>
+<hr>
+<h1 id="String处理增强"><a href="#String处理增强" class="headerlink" title="String处理增强"></a>String处理增强</h1><p>新版字符串<code>String</code>类型增加了诸如：<code>isBlank()</code>、<code>strip()</code>、<code>repeat()</code>等方便的字符串处理方法:</p>
+<p><img src="..%5Cimg%5C11string.png" alt="11string"></p>
+<hr>
+<h1 id="文件读写增强"><a href="#文件读写增强" class="headerlink" title="文件读写增强"></a>文件读写增强</h1><p><strong>1、Files类增强</strong></p>
+<p>能把文件内容读取到<code>String</code>以及<code>String</code>回写到文件,可以通过<code>Files</code>类的静态方法<code>writeString()</code>和<code>readString()</code>完成：</p>
+<p><img src="..%5Cimg%5Cfiles_string.png" alt="files_string"></p>
+<p><strong>2、InputStream增强</strong></p>
+<p><code>InputStream</code>则增加了一个<code>transferTo()</code>方法（<code>Java 9新增</code>），直接将数据丢到<code>OutputStream</code>去：</p>
+<p><img src="..%5Cimg%5CinputStream.png" alt="inputStream"></p>
+<hr>
+<h1 id="支持源文件直接运行"><a href="#支持源文件直接运行" class="headerlink" title="支持源文件直接运行"></a>支持源文件直接运行</h1><p>比如我写一个最简单的<code>Hello World</code>程序：</p>
+<p><img src="..%5Cimg%5ChelloWorld.png" alt="helloWorld"></p>
+<p>并保存为<code>HelloWorld.java</code>文件，这时候可以直接用<code>java</code>指令去运行这个Java源文件，直接省去以前<code>javac</code>编译源文件的过程：</p>
+<p><img src="..%5Cimg%5Cshell_helloWord.png" alt="shell_helloWord"></p>
+<p>怎么样？是不是和python源文件的运行有点像？</p>
 
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<p>注意当Feign的隔离策略为THREAD时，由于当使用该隔离策略时，是没办法拿到 ThreadLocal 中的值的，但是RequestContextHolder 源码中，使用了两个ThreadLocal，因此当使用该隔离策略时是没有办法通过RequestContextHolder获取到request对象的，这时如果你还坚持使用THREAD这个隔离策略就需要自定义策略（重写THREAD隔离策略），代码如下：</p>
-<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 自定义并发策略</span><br><span class="line"> * 将现有的并发策略作为新并发策略的成员变量</span><br><span class="line"> * 在新并发策略中，返回现有并发策略的线程池、Queue</span><br><span class="line"> *</span><br><span class="line"> * hystrix.command.default.execution.isolation.strategy=THREAD   Hystrix的默认隔离策略（官方推荐，当使用该隔离策略时，是没办法拿到 ThreadLocal 中的值的，但是</span><br><span class="line"> *                                                               RequestContextHolder 源码中，使用了两个ThreadLocal）</span><br><span class="line"> * hystrix.command.default.execution.isolation.strategy=SEMAPHORE （将隔离策略改为SEMAPHORE 也可以解决这个问题，但是官方并不推荐这个策略，因为这个策略对网络资源消耗比较大）</span><br><span class="line"> *</span><br><span class="line"> * 主要是解决当 Hystrix的默认隔离策略是THREAD时，不能通过RequestContextHolder获取到request对象的问题</span><br><span class="line"> *</span><br><span class="line"> * Create By yxl on 2018/5/22</span><br><span class="line"> */</span><br><span class="line">@Component</span><br><span class="line">public class FeignConfig extends HystrixConcurrencyStrategy &#123;</span><br><span class="line">    private static final Logger log = LoggerFactory.getLogger(FeignConfig.class);</span><br><span class="line">    private HystrixConcurrencyStrategy delegate;</span><br><span class="line"></span><br><span class="line">    public FeignConfig() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            this.delegate = HystrixPlugins.getInstance().getConcurrencyStrategy();</span><br><span class="line">            if (this.delegate instanceof FeignConfig) &#123;</span><br><span class="line">                // Welcome to singleton hell...</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            HystrixCommandExecutionHook commandExecutionHook =</span><br><span class="line">                    HystrixPlugins.getInstance().getCommandExecutionHook();</span><br><span class="line">            HystrixEventNotifier eventNotifier = HystrixPlugins.getInstance().getEventNotifier();</span><br><span class="line">            HystrixMetricsPublisher metricsPublisher = HystrixPlugins.getInstance().getMetricsPublisher();</span><br><span class="line">            HystrixPropertiesStrategy propertiesStrategy =</span><br><span class="line">                    HystrixPlugins.getInstance().getPropertiesStrategy();</span><br><span class="line">            this.logCurrentStateOfHystrixPlugins(eventNotifier, metricsPublisher, propertiesStrategy);</span><br><span class="line">            HystrixPlugins.reset();</span><br><span class="line">            HystrixPlugins.getInstance().registerConcurrencyStrategy(this);</span><br><span class="line">            HystrixPlugins.getInstance().registerCommandExecutionHook(commandExecutionHook);</span><br><span class="line">            HystrixPlugins.getInstance().registerEventNotifier(eventNotifier);</span><br><span class="line">            HystrixPlugins.getInstance().registerMetricsPublisher(metricsPublisher);</span><br><span class="line">            HystrixPlugins.getInstance().registerPropertiesStrategy(propertiesStrategy);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            log.error(&quot;Failed to register Sleuth Hystrix Concurrency Strategy&quot;, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void logCurrentStateOfHystrixPlugins(HystrixEventNotifier eventNotifier,</span><br><span class="line">                                                 HystrixMetricsPublisher metricsPublisher, HystrixPropertiesStrategy propertiesStrategy) &#123;</span><br><span class="line">        if (log.isDebugEnabled()) &#123;</span><br><span class="line">            log.debug(&quot;Current Hystrix plugins configuration is [&quot; + &quot;concurrencyStrategy [&quot;</span><br><span class="line">                    + this.delegate + &quot;],&quot; + &quot;eventNotifier [&quot; + eventNotifier + &quot;],&quot; + &quot;metricPublisher [&quot;</span><br><span class="line">                    + metricsPublisher + &quot;],&quot; + &quot;propertiesStrategy [&quot; + propertiesStrategy + &quot;],&quot; + &quot;]&quot;);</span><br><span class="line">            log.debug(&quot;Registering Sleuth Hystrix Concurrency Strategy.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public &lt;T&gt; Callable&lt;T&gt; wrapCallable(Callable&lt;T&gt; callable) &#123;</span><br><span class="line">        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();</span><br><span class="line">        return new WrappedCallable&lt;&gt;(callable, requestAttributes);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public ThreadPoolExecutor getThreadPool(HystrixThreadPoolKey threadPoolKey,</span><br><span class="line">                                            HystrixProperty&lt;Integer&gt; corePoolSize, HystrixProperty&lt;Integer&gt; maximumPoolSize,</span><br><span class="line">                                            HystrixProperty&lt;Integer&gt; keepAliveTime, TimeUnit unit, BlockingQueue&lt;Runnable&gt; workQueue) &#123;</span><br><span class="line">        return this.delegate.getThreadPool(threadPoolKey, corePoolSize, maximumPoolSize, keepAliveTime,</span><br><span class="line">                unit, workQueue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public BlockingQueue&lt;Runnable&gt; getBlockingQueue(int maxQueueSize) &#123;</span><br><span class="line">        return this.delegate.getBlockingQueue(maxQueueSize);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public &lt;T&gt; HystrixRequestVariable&lt;T&gt; getRequestVariable(HystrixRequestVariableLifecycle&lt;T&gt; rv) &#123;</span><br><span class="line">        return this.delegate.getRequestVariable(rv);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static class WrappedCallable&lt;T&gt; implements Callable&lt;T&gt; &#123;</span><br><span class="line">        private final Callable&lt;T&gt; target;</span><br><span class="line">        private final RequestAttributes requestAttributes;</span><br><span class="line"></span><br><span class="line">        public WrappedCallable(Callable&lt;T&gt; target, RequestAttributes requestAttributes) &#123;</span><br><span class="line">            this.target = target;</span><br><span class="line">            this.requestAttributes = requestAttributes;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public T call() throws Exception &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                RequestContextHolder.setRequestAttributes(requestAttributes);</span><br><span class="line">                return target.call();</span><br><span class="line">            &#125; finally &#123;</span><br><span class="line">                RequestContextHolder.resetRequestAttributes();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
 
     
@@ -287,7 +343,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2021/12/02/openfeign调用服务请求头丢失问题/" title="openfeign调用服务请求头丢失问题" target="_blank">http://yoursite.com/2021/12/02/openfeign调用服务请求头丢失问题/</a>
+          <a href="http://yoursite.com/2021/12/25/java11对比java8/" title="java11对比java8不同" target="_blank">http://yoursite.com/2021/12/25/java11对比java8/</a>
         </li>
         
         <li>
@@ -354,7 +410,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/12/02/openfeign%E8%B0%83%E7%94%A8%E6%9C%8D%E5%8A%A1%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -369,18 +425,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/12/25/java11%E5%AF%B9%E6%AF%94java8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java11对比java8不同
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/04/java%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java启动脚本</div>
+    <a href="/2021/12/02/openfeign%E8%B0%83%E7%94%A8%E6%9C%8D%E5%8A%A1%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">openfeign调用服务请求头丢失问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
